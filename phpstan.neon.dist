@@ -1,0 +1,13 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app
+
+    level: 7
+
+    excludePaths:
+        - ./app/Http/Middleware/RedirectIfAuthenticated.php
+        - ./app/Domain/Metable/Traits/MetadataTrait.php

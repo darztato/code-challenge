@@ -11,6 +11,11 @@ use App\Http\Resources\AbstractResource;
  */
 class ListCustomerResource extends AbstractResource
 {
+    /**
+     * @param \Illuminate\Http\Request|null $request
+     *
+     * @return array<string, mixed>
+     */
     public function toArray($request): array
     {
         return [

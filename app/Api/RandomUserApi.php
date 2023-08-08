@@ -29,9 +29,4 @@ final class RandomUserApi
 
         return json_decode($response);
     }
-
-    public function importUser()
-    {
-        
-    }
 }

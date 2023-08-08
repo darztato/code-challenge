@@ -34,7 +34,6 @@ final class UpdateCustomerRequest extends AbstractCustomerRequest
      */
     public function rules(): array
     {
-        dd($this->getUuid());
         /** @var Customer $customerRoute */
         $customerRoute = $this->route('customer');
 
