@@ -23,7 +23,7 @@ trait UuidTrait
 
     public function uuidColumn(): string
     {
-        return 'id';
+        return 'uuid';
     }
 
     public function getRouteKeyName(): string
