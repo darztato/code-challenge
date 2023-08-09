@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Customer\Controllers;
 
-use App\Domain\Applicant\Resources\ReadCustomerResource;
+
 use App\Domain\Customer\Models\Customer;
+use App\Domain\Customer\Resources\ReadCustomerResource;
 use App\Http\Controllers\AbstractController;
 use Illuminate\Contracts\Support\Responsable;
 

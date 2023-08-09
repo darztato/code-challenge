@@ -33,7 +33,6 @@ final class CreateCustomerRequest extends AbstractCustomerRequest
                 'string',
             ],
             'uuid' => [
-                'required',
                 'string',
                 'uuid',
             ],
@@ -57,7 +56,7 @@ final class CreateCustomerRequest extends AbstractCustomerRequest
                 'required',
                 'string',
             ],
-            
+
         ];
     }
 }

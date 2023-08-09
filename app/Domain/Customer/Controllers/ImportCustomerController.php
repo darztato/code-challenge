@@ -8,6 +8,7 @@ use App\Api\RandomUserApi;
 use App\Domain\Customer\Commands\CreateCustomerCommand;
 use App\Domain\Customer\Commands\UpdateCustomerCommand;
 use App\Domain\Customer\Models\Customer;
+use App\Domain\Customer\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Http\Controllers\AbstractController;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -19,15 +20,16 @@ final class ImportCustomerController extends AbstractController
     public function __invoke(
         CommandBus $commandBus,
         RandomUserApi $randomUserApi,
+        CustomerRepositoryInterface $customerRepository
     ): Responsable {
         $users = $randomUserApi->getUser();
 
         foreach ($users->results as $user) {
-            $customerExists = Customer::where('email', $user->email)->exists();
+            $emailExists = $customerRepository->isExistsByColumn(Customer::EMAIL_COLUMN, $user->email);
             $location = $user->location;
             $login = $user->login;
             $name = $user->name;
-            if (!$customerExists) {
+            if (!$emailExists) {
                 $commandBus->dispatch(
                     new CreateCustomerCommand(
                         $login->uuid,

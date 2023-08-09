@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Applicant\Resources;
-
-use App\Domain\Customer\Resources\ListCustomerResource;
+namespace App\Domain\Customer\Resources;
 
 final class ReadCustomerResource extends ListCustomerResource
 {

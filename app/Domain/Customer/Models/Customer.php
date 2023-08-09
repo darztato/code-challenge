@@ -6,9 +6,12 @@ namespace App\Domain\Customer\Models;
 
 use App\Models\AbstractProjection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 final class Customer extends AbstractProjection
 {
+    use SoftDeletes;
+
     public const CITY_COLUMN = 'city';
 
     public const COUNTRY_COLUMN = 'country';
@@ -58,6 +61,7 @@ final class Customer extends AbstractProjection
     protected $fillable = [
         self::CITY_COLUMN,
         self::COUNTRY_COLUMN,
+        self::EMAIL_COLUMN,
         self::FIRST_NAME_COLUMN,
         self::UUID_COLUMN,
         self::LAST_NAME_COLUMN,
@@ -95,11 +99,6 @@ final class Customer extends AbstractProjection
     public function getGender(): string
     {
         return $this->getAttribute('gender');
-    }
-
-    public function getUuid(): string
-    {
-        return $this->getAttribute('uuid');
     }
 
     public function getLastName(): string
