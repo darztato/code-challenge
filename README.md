@@ -46,6 +46,16 @@ To create test cases, kindly check our [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
+## Php-lint
+
+To check the syntax of PHP files in parallel, simply run:
+
+```sh
+composer run php-lint
+```
+
+---
+
 ## Php-stan
 
 To find errors in your code without actually running it, simply run:
