@@ -6,7 +6,7 @@ namespace App\Domain\Customer\Controllers;
 
 use App\Api\RandomUserApi;
 use App\Domain\Customer\Commands\CreateImportedCustomerCommand;
-use App\Domain\Customer\Commands\UpdateImportedCustomerCommand;
+use App\Domain\Customer\Commands\UpdateImportedCustomer;
 use App\Domain\Customer\Models\Customer;
 use App\Domain\Customer\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Http\Controllers\AbstractController;
@@ -46,7 +46,7 @@ final class ImportCustomerController extends AbstractController
                 );
             } else {
                 $commandBus->dispatch(
-                    new UpdateImportedCustomerCommand(
+                    new UpdateImportedCustomer(
                         $login->uuid,
                         Arr::whereNotNull([
                             Customer::CITY_COLUMN => $location->city,

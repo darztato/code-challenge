@@ -7,7 +7,7 @@ namespace App\Domain\Customer\Aggregates;
 use App\Domain\Customer\Commands\CreateCustomerCommand;
 use App\Domain\Customer\Commands\CreateImportedCustomerCommand;
 use App\Domain\Customer\Commands\UpdateCustomerCommand;
-use App\Domain\Customer\Commands\UpdateImportedCustomerCommand;
+use App\Domain\Customer\Commands\UpdateImportedCustomer;
 use App\Domain\Customer\Events\CreatedCustomerEvent;
 use App\Domain\Customer\Events\CreatedImportedCustomerEvent;
 use App\Domain\Customer\Events\UpdatedCustomerEvent;
@@ -63,7 +63,7 @@ final class CustomerAggregate extends AggregateRoot
         return $this;
     }
 
-    public function updateImport(UpdateImportedCustomerCommand $command): self
+    public function updateImport(UpdateImportedCustomer $command): self
     {
         $this->recordThat(new UpdatedImportedCustomerEvent(
             $command->attributes,

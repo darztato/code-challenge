@@ -9,7 +9,7 @@ use Spatie\EventSourcing\Commands\AggregateUuid;
 use Spatie\EventSourcing\Commands\HandledBy;
 
 #[HandledBy(CustomerAggregate::class)]
-final class UpdateImportedCustomerCommand
+final class UpdateImportedCustomer
 {
     /**
      * @param array<string, mixed> $attributes
