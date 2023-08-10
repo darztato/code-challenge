@@ -22,6 +22,26 @@ composer install
 
 ---
 
+## Database Migration
+
+Migrate Database by running:
+
+```sh
+php artisan migrate
+```
+
+---
+
+## Database Seeder(optional)
+
+Seed Database by running:
+
+```sh
+php artisan db:seed
+```
+
+---
+
 ## Run
 
 Run the server in local:
