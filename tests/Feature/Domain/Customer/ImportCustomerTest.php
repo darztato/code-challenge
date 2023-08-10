@@ -8,15 +8,15 @@ use App\Api\RandomUserApi;
 use App\Domain\Customer\Models\Customer;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
+use Tests\AbstractTestCase;
 
-class ImportCustomerTest extends TestCase
+class ImportCustomerTest extends AbstractTestCase
 {
-    use RefreshDatabase; // To reset the database after each test
-    use WithFaker; // To generate fake data
+    use RefreshDatabase;
+    use WithFaker;
 
     /** @test */
-    public function it_imports_customers_from_api()
+    public function imports_customers_from_api()
     {
         // Mock the RandomUserApi class
         $randomUserApiMock = $this->createMock(RandomUserApi::class);

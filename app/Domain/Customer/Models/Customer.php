@@ -22,11 +22,9 @@ final class Customer extends AbstractProjection
 
     public const FIRST_NAME_COLUMN = 'first_name';
 
-    public const UUID_COLUMN = 'uuid';
+    public const GENDER_COLUMN = 'gender';
 
     public const LAST_NAME_COLUMN = 'last_name';
-
-    public const GENDER_COLUMN = 'gender';
 
     public const PASSWORD_COLUMN = 'password';
 
@@ -37,6 +35,8 @@ final class Customer extends AbstractProjection
     public const TABLE = 'customers';
 
     public const USERNAME_COLUMN = 'username';
+
+    public const UUID_COLUMN = 'uuid';
 
     /**
      * @var array<string, string>
@@ -104,6 +104,11 @@ final class Customer extends AbstractProjection
     public function getLastName(): string
     {
         return $this->getAttribute('last_name');
+    }
+
+    public function getPassword(): string
+    {
+        return $this->getAttribute('password');
     }
 
     public function getPhone(): string
