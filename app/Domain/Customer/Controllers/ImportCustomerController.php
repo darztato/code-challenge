@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Domain\Customer\Controllers;
 
 use App\Api\RandomUserApi;
-use App\Domain\Customer\Commands\CreateCustomerCommand;
-use App\Domain\Customer\Commands\UpdateCustomerCommand;
+use App\Domain\Customer\Commands\CreateImportedCustomerCommand;
+use App\Domain\Customer\Commands\UpdateImportedCustomerCommand;
 use App\Domain\Customer\Models\Customer;
 use App\Domain\Customer\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Http\Controllers\AbstractController;
@@ -31,7 +31,7 @@ final class ImportCustomerController extends AbstractController
             $name = $user->name;
             if (!$emailExists) {
                 $commandBus->dispatch(
-                    new CreateCustomerCommand(
+                    new CreateImportedCustomerCommand(
                         $login->uuid,
                         $location->city,
                         $location->country,
@@ -46,7 +46,7 @@ final class ImportCustomerController extends AbstractController
                 );
             } else {
                 $commandBus->dispatch(
-                    new UpdateCustomerCommand(
+                    new UpdateImportedCustomerCommand(
                         $login->uuid,
                         Arr::whereNotNull([
                             Customer::CITY_COLUMN => $location->city,
